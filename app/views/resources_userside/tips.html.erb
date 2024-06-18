@@ -1,0 +1,41 @@
+<h1>More Tips for your Pets</h1><br>
+
+
+<% @resources.each do |resource| %>
+  <button type="button" class="btn btn-success btn-lg " data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= resource.id %>">
+     <%= resource.name %>
+  </button>
+
+  <div class="modal fade" id="staticBackdrop<%= resource.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel<%= resource.id %>" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel<%= resource.id %>"><%= resource.name %></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <b>Category:</b> <%= resource.category %><br></br>
+          <%= resource.description %><br></br>
+         <a href="<%= resource.url %>">Read more</a><br></br>
+          <b>Date Published:</b> <%= resource.published_at %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <img src="..." class="rounded me-2" alt="...">
+    <strong class="me-auto">Bootstrap</strong>
+    
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <div class="card border-0 shadow-sm rounded">
+    <div class="card-body p-5">
+      <h1 class="mb-4 text-center">New Resource</h1>
+      <%= render "form", resource: @resource %>
+      
+      <div class="mt-4 text-center">
+        <%= link_to "Back to Resources", resources_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>

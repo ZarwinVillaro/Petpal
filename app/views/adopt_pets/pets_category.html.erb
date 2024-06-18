@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-start mb-3">
+  <%= link_to adopt_pets_path, class: "btn btn-primary me-3" do %>
+    <i class="fas fa-arrow-left"></i>
+    Back
+  <% end %>
+
+  <%= link_to pets_category_path(category: 'Cat'), class: "btn btn-success me-3" do %>
+    <i class="fas fa-cat"></i>
+    Cat
+  <% end %>
+
+  <%= link_to pets_category_path(category: 'Dog'), class: "btn btn-info me-3" do %>
+    <i class="fas fa-dog"></i>
+    Dog
+  <% end %>
+
+  <%= link_to pets_category_path(category: 'Bird'), class: "btn btn-warning me-3" do %>
+    <i class="fas fa-dove"></i>
+    Bird
+  <% end %>
+
+  <%= link_to pets_category_path(category: 'Other'), class: "btn btn-secondary" do %>
+    <i class="fas fa-paw"></i>
+    Other
+  <% end %>
+</div>
+
+<h1>Pets in <%= params[:category] %> Category</h1><br>
+
+<div class="row">
+  <% @pets.each do |pet| %>
+    <div class="col-md-4 mb-4 d-flex align-items-stretch">
+      <div class="card w-100">
+        <% if pet.image.attached? %>
+          <%= image_tag pet.image, class: "card-img-top", alt: "Pet Image", style: "height: 200px; object-fit: cover;" %>
+        <% end %>
+
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title"><%= pet.name %></h5>
+          <p class="card-text">Age: <%= pet.age %></p>
+          <p class="card-text"><%= pet.description %></p>
+          <div class="mt-auto">
+            <%= link_to "Adopt", adopt_pets_adoptation_form_path, class: "btn btn-primary btn-sm me-2" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

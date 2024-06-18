@@ -1,0 +1,17 @@
+<div class="row">
+  <% @pet_owners.each do |pet_owner| %>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <% if pet_owner.image.attached? %>
+          <%= image_tag pet_owner.image, class: "card-img-top", alt: "Pet Owner Image", style: "height: 200px; object-fit: cover; border-top-left-radius: 0.75rem; border-top-right-radius: 0.75rem;" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= pet_owner.full_name %></h5>
+          <p class="card-text">Number of Pets: <%= pet_owner.pets.count %></p>
+          <p class="card-text"><%= pet_owner.description %></p>
+          <%= link_to "View Pets", view_pet_adopt_pets_path(pet_owner.id), class: "btn btn-primary btn-sm me-2" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

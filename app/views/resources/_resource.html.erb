@@ -1,0 +1,28 @@
+<div id="<%= dom_id(resource) %>" class="card mb-4 shadow-sm rounded">
+  <div class="card-body">
+    <h2 class="card-title">
+      <strong><%= resource.name %></strong>
+    </h2>
+    <hr>
+
+    <p class="card-text">
+      <strong>Description:</strong><br>
+      <%= resource.description %>
+    </p>
+
+    <p class="card-text">
+      <strong>Category:</strong><br>
+      <%= resource.category %>
+    </p>
+
+    <p class="card-text">
+      <strong>Url:</strong><br>
+      <%= link_to resource.url, resource.url, target: "_blank" %>
+    </p>
+
+    <p class="card-text">
+      <strong>Published at:</strong><br>
+      <%= resource.published_at.strftime("%B %d, %Y") %>
+    </p>
+  </div>
+</div>

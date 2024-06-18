@@ -1,0 +1,44 @@
+<div id="<%= dom_id pet %>" class="pet-details">
+  <div class="pet-image">
+    <% if pet.image.attached? %>
+      <%= image_tag pet.image, class: "card-img-top", alt: "Pet Image", style: "height: 300px; object-fit: cover;" %>
+    <% end %>
+  </div>
+  <div class="pet-info">
+    <p>
+      <strong>Name:</strong>
+      <%= pet.name %>
+    </p>
+    <p>
+      <strong>Age:</strong>
+      <%= pet.age %>
+    </p>
+    <p>
+      <strong>Breed:</strong>
+      <%= pet.breed %>
+    </p>
+    <p>
+    <strong>Category:</strong>
+    <%= pet.category %>
+  </p>
+    <p>
+      <strong>Description:</strong>
+      <%= pet.description %>
+    </p>
+  </div>
+</div>
+
+<style>
+  .pet-details {
+    display: flex;
+    align-items: center;
+  }
+
+  .pet-image {
+    margin-right: 20px;
+  }
+
+  .pet-info {
+    flex-grow: 1;
+  }
+</style>

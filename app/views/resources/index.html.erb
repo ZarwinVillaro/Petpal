@@ -1,0 +1,22 @@
+<h1 class="my-4">Resources</h1>
+<div class="text-center my-4">
+  <%= link_to "New resource", new_resource_path, class: "btn btn-success" %>
+</div>
+
+<div id="resources" class="container">
+  <div class="row">
+    <% @resources.each do |resource| %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <%= render resource %>
+            <p class="mt-3">
+              <%= link_to "Show this resource", resource, class: "btn btn-primary" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

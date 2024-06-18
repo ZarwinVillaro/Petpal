@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <%= link_to root_path, class: "navbar-brand fw-semibold fs-5" do %>
+      <i class="fas fa-paw"></i>
+    <% end %>
+    <%= link_to "PetPal", root_path, class: "navbar-brand fw-semibold fs-5" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarText">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link #{'active' if current_page?(root_path)}" do %>
+            <i class="fas fa-home"></i> Home
+          <% end %>
+        </li>
+
+
+        
+        <li class="nav-item">
+          <%= link_to resources_userside_tips_path, class: "nav-link #{'active' if current_page?(resources_userside_tips_path)}" do %>
+            <i class="fas fa-book"></i> Resources
+          <% end %>
+        </li>
+
+
+
+
+        <% if current_user %>
+          <% if current_user.role == "pet_owner" %>
+            <li class="nav-item">
+              <%= link_to pets_path, class: "nav-link #{'active' if current_page?(pets_path)}" do %>
+                <i class="fas fa-cat"></i> My Pets
+              <% end %>
+            </li>
+            <li class="nav-item">
+            <%= link_to inbox_index_path, class: "nav-link #{'active' if current_page?(inbox_index_path)}" do %>
+              <i class="fas fa-inbox"></i> inbox
+            <% end %>
+          </li>
+            <li class="nav-item">
+              <%= link_to edit_user_registration_path, class: "nav-link #{'active' if current_page?(edit_user_registration_path)}" do %>
+                <i class="fas fa-user"></i> Profile
+              <% end %>
+            </li>
+
+            
+          <% elsif current_user.role == "admin" %>
+            <li class="nav-item">
+              <%= link_to pets_path, class: "nav-link #{'active' if current_page?(pets_path)}" do %>
+                <i class="fas fa-dog"></i> Manage Pets
+              <% end %>
+            </li>
+
+
+
+            <li class="nav-item">
+              <%= link_to edit_user_registration_path, class: "nav-link #{'active' if current_page?(edit_user_registration_path)}" do %>
+                <i class="fas fa-user-shield"></i> Profile
+              <% end %>
+            </li>
+
+
+
+            <li class="nav-item">
+              <%= link_to resources_path, class: "nav-link #{'active' if current_page?(resources_path)}" do %>
+                <i class="fas fa-tools"></i> Resources
+              <% end %>
+            </li>
+
+
+          <% elsif current_user.role == "user" %>
+            <li class="nav-item">
+              <%= link_to adopt_pets_index_path, class: "nav-link #{'active' if current_page?(adopt_pets_index_path)}" do %>
+                <i class="fas fa-heart"></i> Adopt a Pet
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to edit_user_registration_path, class: "nav-link #{'active' if current_page?(edit_user_registration_path)}" do %>
+                <i class="fas fa-user"></i> Profile
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+
+
+    <% if current_user %>
+      <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link active" do %>
+        <i class="fas fa-sign-out-alt"></i> Sign out
+      <% end %>
+    <% else %>
+      <%= link_to new_user_registration_path, class: "nav-link #{'active' if current_page?(new_user_registration_path)}" do %>
+        <i class="fas fa-user-plus"></i> Sign Up
+      <% end %>
+    <% end %>
+  </div>
+</nav>
