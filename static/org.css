@@ -1,0 +1,136 @@
+body {
+        background-image: url('images/aclcback.png');
+        background-repeat: no-repeat; /* prevents the image from repeating */
+        background-size: cover; /* makes sure the image covers the entire background */
+        background-position: center; /* positions the image in the center */
+        background-attachment: fixed; /* fixes the background image while scrolling */
+    }
+    
+
+.container {
+    display: flex;
+}
+.sidebar {
+    width: 250px;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #333; /* Dark text color */
+    padding-top: 20px;
+    height: 100vh; /* Full height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and buttons */
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it appears above other content */
+    overflow-y: auto; /* Allow scrolling */
+}
+
+.logo img {
+    width: 100%; /* Make the logo fill the container width */
+    max-width: 200px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px;
+}
+
+.login-logout-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.login-btn:hover,
+.logout:hover {
+    background-color: #495057; /* Slightly darker gray on hover */
+}
+
+
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    color: #000000;
+    margin-bottom: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.organization-container {
+    display: grid;  
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+}
+
+.organization {
+    background-color: #ffffffa2;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out;
+
+}
+.organization:hover {
+    transform: scale(1.04);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.26);
+
+}
+
+
+.org-details {
+    text-align: center;
+}
+
+.org-details h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #3f51b5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: xx-large;
+}
+
+.org-details p {
+    margin: 10px 0;
+    color: #000000;
+}
+
+.apply-button,
+.view-button {
+    background-color:   #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.apply-button:hover,
+.view-button:hover {
+    background-color: #025ab8;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding-bottom: 20px; /* Added to create space at the bottom */
+    }
+    .content {
+        padding: 20px 10px; /* Adjusted padding */
+    }
+}
+
+
